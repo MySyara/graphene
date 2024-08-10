@@ -19,7 +19,9 @@ class Decimal(Scalar):
         assert isinstance(dec, _Decimal), 'Received not compatible Decimal "{}"'.format(
             repr(dec)
         )
-        return str(dec)
+        # we represent Decimal as float in the APIs but graphene.Decimal does it as string
+        # return str(dec)
+        return float(dec)
 
     @classmethod
     def parse_literal(cls, node):
