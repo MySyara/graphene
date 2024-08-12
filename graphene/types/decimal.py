@@ -25,7 +25,7 @@ class Decimal(Scalar):
 
     @classmethod
     def parse_literal(cls, node):
-        if isinstance(node, ast.StringValue):
+        if isinstance(node, ast.StringValue) or isinstance(node, ast.FloatValue):
             return cls.parse_value(node.value)
 
     @staticmethod
